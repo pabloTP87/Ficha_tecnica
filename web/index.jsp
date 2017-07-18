@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index
+    Created on : 18-07-2017, 12:46:36
+    Author     : Sammy Guergachi <sguergachi at gmail.com>
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
