@@ -60,20 +60,54 @@
                 <form class="col s12">
                     <div class="row">
                         <div class="col s12 l6">
-                            <div class="card">
+                            <div class="card z-depth-4">
                                 <div class="class card-content">
                                     <div class="row">			
                                         <div class="input-field col s12">
-                                            <i class="material-icons prefix">account_circle</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="nombre">
+                                            <i class="material-icons prefix">perm_identity</i>
+                                            <input id="icon_prefix" type="text" class="validate" name="nombre_usuario">
                                             <label for="icon_prefix">Nombre</label>
                                         </div>
                                     </div>	
                                     <div class="row">			
                                         <div class="input-field col s12">
+                                            <i class="material-icons prefix">library_books</i>
+                                            <input id="icon_prefix" type="text" class="validate" name="ap_paterno">
+                                            <label for="icon_prefix">1er Apellido</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">			
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">library_books</i>
+                                            <input id="icon_prefix" type="text" class="validate" name="ap_materno">
+                                            <label for="icon_prefix">2do Apellido</label>
+                                        </div>
+                                    </div>
+                                </div>		
+                            </div>
+                        </div>
+                        <div class="col s12 l6">
+                            <div class="card z-depth-4">
+                                <div class="class card-content">
+                                    <div class="row">			
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">tab</i>
+                                            <input id="icon_prefix" type="text" class="validate" name="rut">
+                                            <label for="icon_prefix">Rut</label>
+                                        </div>
+                                    </div>	
+                                    <div class="row">			
+                                        <div class="input-field col s12">
                                             <i class="material-icons prefix">account_circle</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="nombre">
-                                            <label for="icon_prefix">Nombre</label>
+                                            <input id="icon_prefix" type="text" class="validate" name="username">
+                                            <label for="icon_prefix">Username</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">			
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">vpn_key</i>
+                                            <input id="icon_prefix" type="password" class="validate" name="clave">
+                                            <label for="icon_prefix">Password</label>
                                         </div>
                                     </div>
                                 </div>		
@@ -83,23 +117,26 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <select>
-                                <option value="" disabled selected>Choose your option</option>
+                                <option value="" disabled selected>Selecionar</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
                                 <option value="3">Option 3</option>
                             </select>
-                            <label>Materialize Select</label>
+                            <label>Empresa</label>
                         </div>
                         <div class="input-field col s6">
                             <select>
-                                <option value="" disabled selected>Choose your option</option>
+                                <option value="" disabled selected>Selecionar</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
                                 <option value="3">Option 3</option>
                             </select>
-                            <label>Materialize Select</label>
+                            <label>Privilegio de usuario</label>
                         </div>
                     </div>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Crear usuario
+                        <i class="material-icons right">send</i>
+                    </button>
                 </form>
             </div>
         </main>
@@ -122,6 +159,7 @@
         $('select').material_select();
     });
 </script>
+<!--Script que activa el sidebar-->
 <script>
     $(".sidenav-toggle").sideNav();
 </script>
