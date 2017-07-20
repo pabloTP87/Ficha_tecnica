@@ -22,23 +22,21 @@ public class ServletUsuario extends HttpServlet {
                 String clave = request.getParameter("clave");
                 usuario.setUsername(username);
                 usuario.setClave(clave);
-                
                 if (usuario.validar() == 1) {
                     sesion.setAttribute("conectado", "true-admin");
                     response.sendRedirect("administrador/inicio.jsp");
                 } 
                 else if(usuario.validar()==2){
                     sesion.setAttribute("conectado", "true-invitado");
-                    response.sendRedirect("invitado/inicio.jsp");
+                    response.sendRedirect("invitado/invitado_inicio.jsp");
                 }
                 else {
                     sesion.setAttribute("conectado", "false");
                     response.sendRedirect("index.jsp");
-                }
-            
+                }            
+            }
         }
     }
-}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

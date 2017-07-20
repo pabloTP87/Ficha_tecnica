@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="Acceso.Conexion" %>
+<%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,13 +16,14 @@
         <div id="login" class="blue-grey lighten-2 valign-wrapper">
             <div class="row">			
                 <div class="card-panel z-depth-5">			
-                    <form method="post" action="ServletUsuario?accion=ingresar">
+                    
                         <div class="row">
                             <div class="input-field col s12 center">
                                 <img src="img/logo.png" alt="" class="responsive-img valign profile-image-login">
                                 <p class="center">Sala de control GPS</p>
                             </div>
                         </div>
+                    <form method="post" action="ServletUsuario?accion=ingresar">
                         <div class="input-field">
                             <i class="material-icons prefix">account_circle</i>
                             <label>Usuario</label>

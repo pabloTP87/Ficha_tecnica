@@ -4,6 +4,8 @@
     HttpSession sesion=request.getSession();
     if(sesion.getAttribute("contectado")==null || sesion.getAttribute("conectado").equals("false") || sesion.getAttribute("conectado").equals("true-invitado")){
         response.sendRedirect("../index.jsp");
+    }else{
+        
     }
 %>
 <html>
