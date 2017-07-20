@@ -32,7 +32,7 @@
                         <div class="input-field">
                             <i class="material-icons prefix">lock</i>
                             <label>Clave</label>
-                            <input type="password" name="clave" class="validate">
+                            <input type="password" name="clave">
                         </div>
                         <div class="center">
                             <button type="submit" class="waves-effect waves-light btn z-depth-5">Ingresar</button>
