@@ -1,7 +1,7 @@
 <%-- 
-    Document   : inicio
-    Created on : 18-07-2017, 12:33:18
-    Author     : Sammy Guergachi <sguergachi at gmail.com>
+    Document   : usuario_index
+    Created on : 20-07-2017, 1:43:29
+    Author     : Galmier
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -47,9 +47,8 @@
                         </li>
                         <li class="divider"></li>
                         <li><a href="#!"><i class="material-icons">home</i>Inicio</a></li>
-                        <li><a href="#!"><i class="material-icons">directions_car</i>Modulo Vehiculos</a></li>
-                        <li><a href="#!"><i class="material-icons">directions_walk</i>Modulo Choferes</a></li>
-                        <li><a href="usuario/usuario_index.jsp"><i class="material-icons">perm_identity</i>Modulo Usuarios</a></li>
+                        <li><a href="usuario_crear.jsp"><i class="material-icons">directions_walk</i>Crear Usuario</a></li>
+                        <li><a href="usuario_editar.jsp"><i class="material-icons">perm_identity</i>Editar Usuario</a></li>
                         <li><a href="#!"><i class="material-icons">power_settings_new</i>Log out</a></li>
                     </ul>        
                 </nav>
@@ -87,7 +86,7 @@
                         <div class="card-content white-text">
                             <span class="card-title">Listar Equipos</span>
                             <p>Consulte todos los equipos disponibles en el sistema, 
-                                haciento filtros por patente, empresa o tipo de vehiculo</p>
+                                haciento filtros por patente, enpresa o tipo de vehiculo</p>
                         </div>
                         <div class="card-action">
                             <a href="#">Consultar equipos</a>              
