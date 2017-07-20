@@ -132,7 +132,5 @@ public class Usuario {
 
     public void setPrivilegio_id(String privilegio_id) {
         this.privilegio_id = privilegio_id;
-    }
-   
-    
+    }   
 }
