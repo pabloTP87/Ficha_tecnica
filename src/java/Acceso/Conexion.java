@@ -33,7 +33,7 @@ public Conexion(){
             stmt=con.createStatement();
             rs=stmt.executeQuery(sql);
         }catch(Exception ex){
-            System.out.println("ERRO SQL");
+            System.out.println("ERROR SQL");
         }
     }
     public ResultSet getRs(){

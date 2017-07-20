@@ -1,11 +1,5 @@
-<%-- 
-    Document   : index
-    Created on : 18-07-2017, 12:46:36
-    Author     : Sammy Guergachi <sguergachi at gmail.com>
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Servlet.ServletUsuario"%>
+<%@page import="Acceso.Conexion" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,7 +15,7 @@
         <div id="login" class="blue-grey lighten-2 valign-wrapper">
             <div class="row">			
                 <div class="card-panel z-depth-5">			
-                    <form method="POST" action="ServletUsuario?accion=ingresar">
+                    <form method="post" action="ServletUsuario?accion=ingresar">
                         <div class="row">
                             <div class="input-field col s12 center">
                                 <img src="img/logo.png" alt="" class="responsive-img valign profile-image-login">
@@ -36,7 +30,7 @@
                         <div class="input-field">
                             <i class="material-icons prefix">lock</i>
                             <label>Clave</label>
-                            <input type="password" name="password" class="validate">
+                            <input type="password" name="clave" class="validate">
                         </div>
                         <div class="center">
                             <button type="submit" class="waves-effect waves-light btn z-depth-5">Ingresar</button>

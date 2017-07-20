@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import cl.negocio.usuario;
+import cl.negocio.Usuario;
 
 public class ServletUsuario extends HttpServlet {
 
@@ -15,21 +15,27 @@ public class ServletUsuario extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            usuario usu = new usuario();
+            Usuario usuario = new Usuario();
             HttpSession sesion = request.getSession();
             if (request.getParameter("accion").equals("ingresar")) {
                 String username = request.getParameter("username");
                 String clave = request.getParameter("clave");
-                usu.setUsername(username);
-                usu.setClave(clave);
+                usuario.setUsername(username);
+                usuario.setClave(clave);
                 
-                if (usu.validar() == 1) {
-                    sesion.setAttribute("conectado", "true");
+                if (usuario.validar() == 1) {
+                    sesion.setAttribute("conectado", "true-admin");
                     response.sendRedirect("administrador/inicio.jsp");
-                } else {
+                } 
+                else if(usuario.validar()==2){
+                    sesion.setAttribute("conectado", "true-invitado");
+                    response.sendRedirect("invitado/inicio.jsp");
+                }
+                else {
                     sesion.setAttribute("conectado", "false");
                     response.sendRedirect("index.jsp");
                 }
+            
         }
     }
 }

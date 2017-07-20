@@ -1,11 +1,11 @@
-<%-- 
-    Document   : inicio
-    Created on : 18-07-2017, 12:33:18
-    Author     : Sammy Guergachi <sguergachi at gmail.com>
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    HttpSession sesion=request.getSession();
+    if(sesion.getAttribute("contectado")==null || sesion.getAttribute("conectado").equals("false") || sesion.getAttribute("conectado").equals("true-invitado")){
+        response.sendRedirect("../index.jsp");
+    }
+%>
 <html>
     <head>
         <!--Import Google Icon Font-->
