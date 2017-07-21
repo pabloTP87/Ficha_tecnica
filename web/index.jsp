@@ -1,6 +1,4 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Acceso.Conexion" %>
-<%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
     <head>

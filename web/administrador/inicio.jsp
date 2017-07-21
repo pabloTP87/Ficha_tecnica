@@ -52,8 +52,8 @@
                         <li><a href="#!"><i class="material-icons">home</i>Inicio</a></li>
                         <li><a href="#!"><i class="material-icons">directions_car</i>Modulo Vehiculos</a></li>
                         <li><a href="#!"><i class="material-icons">directions_walk</i>Modulo Choferes</a></li>
-                        <li><a href="usuario/usuario_index.jsp"><i class="material-icons">perm_identity</i>Modulo Usuarios</a></li>
-                        <li><a href="#!"><i class="material-icons">power_settings_new</i>Log out</a></li>
+                        <li><a href="usuario/usuario_crear.jsp"><i class="material-icons">perm_identity</i>Modulo Usuarios</a></li>                        
+                        <li><a href="<%response.encodeURL("../index.jsp"); %>"><i class="material-icons">power_settings_new</i>Log out</a></li>                                            
                     </ul>        
                 </nav>
             </div>

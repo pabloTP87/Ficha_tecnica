@@ -33,6 +33,10 @@ public class ServletUsuario extends HttpServlet {
                     response.sendRedirect("index.jsp");
                 }
             }
+            else if(request.getParameter("accion").equals("cerrar")){
+                sesion.invalidate();
+                response.sendRedirect("index.jsp");
+            }
         }
     }
 
