@@ -1,4 +1,4 @@
-import cl.negocio.Usuario;
+import Negocio.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
