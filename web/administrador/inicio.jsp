@@ -49,7 +49,7 @@
                             </div>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#!"><i class="material-icons">home</i>Inicio</a></li>
+                        <li><a href="inicio.jsp"><i class="material-icons">home</i>Inicio</a></li>
                         <li><a href="#!"><i class="material-icons">directions_car</i>Modulo Vehiculos</a></li>
                         <li><a href="#!"><i class="material-icons">directions_walk</i>Modulo Choferes</a></li>
                         <li><a href="usuario/usuario_crear.jsp"><i class="material-icons">perm_identity</i>Modulo Usuarios</a></li>                        

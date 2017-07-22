@@ -59,7 +59,7 @@
                             </div>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#!"><i class="material-icons">home</i>Inicio</a></li>
+                        <li><a href="../inicio.jsp"><i class="material-icons">home</i>Inicio</a></li>
                         <li><a href="#!"><i class="material-icons">directions_car</i>Ingresar Vehiculo</a></li>
                         <li><a href="#!"><i class="material-icons">directions_walk</i>Ingresar Chofer</a></li>
                         <li><a href="#!"><i class="material-icons">perm_identity</i>Crear Usuario</a></li>
