@@ -1,7 +1,7 @@
 <%-- 
-    Document   : usuario_editar
-    Created on : 18-jul-2017, 23:39:29
-    Author     : Pablo
+    Document   : chofer_editar
+    Created on : 22-07-2017, 1:41:30
+    Author     : Galmier
 --%>
 
 <%@page import="Acceso.Conexion"%>
@@ -57,9 +57,9 @@
                         </li>
                         <li class="divider"></li>
                         <li><a href="../inicio.jsp"><i class="material-icons">home</i>Inicio</a></li>
-                        <li><a href="usuario_crear.jsp"><i class="material-icons">directions_car</i>Ingresar Usuario</a></li>
-                        <li><a href="usuario_editar.jsp"><i class="material-icons">directions_walk</i>Editar Usuario</a></li>
-                        <li><a href="#!"><i class="material-icons">perm_identity</i>Eliminiar Usuario</a></li>
+                        <li><a href="chofer_crear.jsp"><i class="material-icons">directions_car</i>Ingresar chofer</a></li>
+                        <li><a href="chofer_editar.jsp"><i class="material-icons">directions_walk</i>Editar Chofer</a></li>
+                        <li><a href="#!"><i class="material-icons">perm_identity</i>Eliminar Chofer</a></li>
                         <li><a href="#!"><i class="material-icons">power_settings_new</i>Log out</a></li>
                     </ul>        
                 </nav>
@@ -72,23 +72,25 @@
                             <th>Id</th>
                             <th>Nombre</th>
                             <th>1er Apellido</th>
-                            <th>Username</th>
+                            <th>Rut</th>
                             <th>Empresa</th>
-                            <th>Privilegio</th>
+                            <th>Vehiculo</th>
+                            <th>Obra</th>
                         </tr>
                     </thead>
 
                     <tbody>
                          <% Conexion conexion=new Conexion();
-                            conexion.setSQL("SELECT usuarios.usuario_id,usuarios.nombre_usuario,usuarios.ap_paterno,usuarios.username,empresas.nombre_empresa,privilegios.tipo_privilegio from usuarios,empresas,privilegios WHERE  usuarios.empresa_id=empresas.empresa_id and usuarios.privilegio_id=privilegios.privilegio_id and estado='activo'");
+                            conexion.setSQL("SELECT choferes.chofer_id,choferes.nombre_chofer,choferes.ap_paterno,choferes.rut,empresas.nombre_empresa,vehiculos.codigo,obras.nombre_obra from choferes,empresas,vehiculos,obras WHERE  choferes.chofer_id=empresas.empresa_id and choferes.chofer_id=vehiculos.vehiculo_id and choferes.chofer_id=obras.obra_id and estado='activo'");
                             while(conexion.getRs().next()){
                                 out.println("<tr>");
-                                out.println("<td>"+conexion.getRs().getString("usuario_id")+"</td>");
-                                out.println("<td>"+conexion.getRs().getString("nombre_usuario")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("chofer_id")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("nombre_chofer")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("ap_paterno")+"</td>");
-                                out.println("<td>"+conexion.getRs().getString("username")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("rut")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("nombre_empresa")+"</td>");
-                                out.println("<td>"+conexion.getRs().getString("tipo_privilegio")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("codigo")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("nombre_obra")+"</td>");
                                 out.println("</tr>");
                             }
                          %> 

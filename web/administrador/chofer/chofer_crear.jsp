@@ -1,9 +1,3 @@
-<%-- 
-    Document   : usuario_crear
-    Created on : 18-07-2017, 18:31:27
-    Author     : Sammy Guergachi <sguergachi at gmail.com>
---%>
-
 <%@page import="Acceso.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -60,9 +54,9 @@
                         </li>
                         <li class="divider"></li>
                         <li><a href="../inicio.jsp"><i class="material-icons">home</i>Inicio</a></li>
-                        <li><a href="usuario_crear.jsp"><i class="material-icons">directions_car</i>Ingresar Usuario</a></li>
-                        <li><a href="usuario_editar.jsp"><i class="material-icons">directions_walk</i>Editar Usuario</a></li>
-                        <li><a href="#!"><i class="material-icons">perm_identity</i>Eliminiar Usuario</a></li>
+                        <li><a href="chofer_crear.jsp"><i class="material-icons">directions_car</i>Ingresar chofer</a></li>
+                        <li><a href="chofer_editar.jsp"><i class="material-icons">directions_walk</i>Editar Chofer</a></li>
+                        <li><a href="#!"><i class="material-icons">perm_identity</i>Eliminar Chofer</a></li>
                         <li><a href="#!"><i class="material-icons">power_settings_new</i>Log out</a></li>
                     </ul>        
                 </nav>
@@ -70,7 +64,7 @@
             <div class="section"></div>
             <!--FORMULARIO-->
             <div class="row container">
-                <form class="col s12" method="post" action="../../ServletUsuario?accion=registrar">
+                <form class="col s12" method="post" action="../../ServletChofer?accion=registrar">
                     <div class="row">
                         <div class="col s12 l6">
                             <div class="card z-depth-4">
@@ -78,7 +72,7 @@
                                     <div class="row">			
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">perm_identity</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="nombre_usuario">
+                                            <input id="icon_prefix" type="text" class="validate" name="nombre_chofer">
                                             <label for="icon_prefix">Nombre</label>
                                         </div>
                                     </div>	
@@ -88,39 +82,25 @@
                                             <input id="icon_prefix" type="text" class="validate" name="ap_paterno">
                                             <label for="icon_prefix">1er Apellido</label>
                                         </div>
-                                    </div>
-                                    <div class="row">			
-                                        <div class="input-field col s12">
-                                            <i class="material-icons prefix">library_books</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="ap_materno">
-                                            <label for="icon_prefix">2do Apellido</label>
-                                        </div>
-                                    </div>
+                                    </div>                                   
                                 </div>		
                             </div>
                         </div>
                         <div class="col s12 l6">
                             <div class="card z-depth-4">
                                 <div class="class card-content">
-                                    <div class="row">			
+                                    <div class="row">						
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">library_books</i>
+                                            <input id="icon_prefix" type="text" class="validate" name="ap_materno">
+                                            <label for="icon_prefix">2do Apellido</label>
+                                        </div>
+                                    </div> 
+                                    <div class="row">
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">tab</i>
                                             <input id="icon_prefix" type="text" class="validate" name="rut">
                                             <label for="icon_prefix">Rut</label>
-                                        </div>
-                                    </div>	
-                                    <div class="row">			
-                                        <div class="input-field col s12">
-                                            <i class="material-icons prefix">account_circle</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="username">
-                                            <label for="icon_prefix">Username</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">			
-                                        <div class="input-field col s12">
-                                            <i class="material-icons prefix">vpn_key</i>
-                                            <input id="icon_prefix" type="password" class="validate" name="clave">
-                                            <label for="icon_prefix">Password</label>
                                         </div>
                                     </div>
                                 </div>		
@@ -139,21 +119,30 @@
                             <label>Empresa</label>
                         </div>
                         <div class="input-field col s6">
-                            <select name="privilegio_id">
-                                <% conexion.setSQL("select * from privilegios");
+                            <select name="vehiculo_id">
+                                <% conexion.setSQL("select * from vehiculos");
                                    while(conexion.getRs().next()){
                                 %>
-                                <option value="<% out.println(conexion.getRs().getString("privilegio_id")); %>"><% out.println(conexion.getRs().getString("tipo_privilegio")); %></option>
+                                <option value="<% out.println(conexion.getRs().getString("vehiculo_id")); %>"><% out.println(conexion.getRs().getString("codigo")); %></option>
                                 <% } %>
                             </select>
-                            <label>Privilegio de usuario</label>
+                            <label>Codigo Vehiculo</label>
                         </div>
+                        <div class="input-field col s6">
+                            <select name="obra_id">
+                                <% conexion.setSQL("select * from obras");
+                                   while(conexion.getRs().next()){
+                                %>
+                                <option value="<% out.println(conexion.getRs().getString("obra_id")); %>"><% out.println(conexion.getRs().getString("nombre_obra")); %></option>
+                                <% } %>
+                            </select>
+                            <label>Obra</label>
+                        </div>    
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Crear usuario
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Crear chofer
                         <i class="material-icons right">send</i>
                     </button>
                 </form>
-            </div>
         </main>
         <!--PIE DE PAGINA-->
         <footer class="page-footer blue-grey darken-4">

@@ -4,9 +4,17 @@
         <servlet-name>ServletUsuario</servlet-name>
         <servlet-class>ServletUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletChofer</servlet-name>
+        <servlet-class>ServletChofer</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletUsuario</servlet-name>
         <url-pattern>/ServletUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletChofer</servlet-name>
+        <url-pattern>/ServletChofer</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
