@@ -57,9 +57,9 @@
                         </li>
                         <li class="divider"></li>
                         <li><a href="../inicio.jsp"><i class="material-icons">home</i>Inicio</a></li>
-                        <li><a href="usuario_crear.jsp"><i class="material-icons">directions_car</i>Ingresar Usuario</a></li>
-                        <li><a href="usuario_editar.jsp"><i class="material-icons">directions_walk</i>Editar Usuario</a></li>
-                        <li><a href="#!"><i class="material-icons">perm_identity</i>Eliminiar Usuario</a></li>
+                        <li><a href="usuario_crear.jsp"><i class="material-icons">person</i>Ingresar Usuario</a></li>
+                        <li><a href="usuario_editar.jsp"><i class="material-icons">settings</i>Editar Usuario</a></li>
+                        <li><a href="#!"><i class="material-icons">cancel</i>Eliminiar Usuario</a></li>
                         <li><a href="#!"><i class="material-icons">power_settings_new</i>Log out</a></li>
                     </ul>        
                 </nav>

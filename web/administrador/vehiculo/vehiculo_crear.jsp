@@ -1,12 +1,11 @@
 <%-- 
-    Document   : usuario_crear
-    Created on : 18-07-2017, 18:31:27
-    Author     : Sammy Guergachi <sguergachi at gmail.com>
+    Document   : vehiculo_crear
+    Created on : 22-07-2017, 2:46:01
+    Author     : Galmier
 --%>
 
 <%@page import="Acceso.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <%
     HttpSession sesion=request.getSession();
     if(sesion.getAttribute("conectado")==null || sesion.getAttribute("conectado").equals("false") || sesion.getAttribute("conectado").equals("true-invitado")){
@@ -47,7 +46,7 @@
                             <li class="divider"></li>
                             <li><a href="#!">Obras</a></li>
                         </ul>
-                        <button type="button" id="w11" class="sidenav-toggle btn teal lighten-1" data-activates="slide-out" style="margin-left: 50px">Menu</button>
+                        <button type="button" id="w11" class="sidenav-toggle btn teal lighten-1" data-activates="slide-out" style="margin-left: 60px">Menu</button>
                     </div>  
                     <!--Barra Lateral con los Menus-->
                     <ul id="slide-out" class="side-nav">
@@ -60,9 +59,9 @@
                         </li>
                         <li class="divider"></li>
                         <li><a href="../inicio.jsp"><i class="material-icons">home</i>Inicio</a></li>
-                        <li><a href="usuario_crear.jsp"><i class="material-icons">person</i>Ingresar Usuario</a></li>
-                        <li><a href="usuario_editar.jsp"><i class="material-icons">settings</i>Editar Usuario</a></li>
-                        <li><a href="#!"><i class="material-icons">cancel</i>Eliminiar Usuario</a></li>
+                        <li><a href="vehiculo_crear.jsp"><i class="material-icons">person</i>Ingresar Vehiculo</a></li>
+                        <li><a href="vehiculo_editar.jsp"><i class="material-icons">settings</i>Editar Vehiculo</a></li>
+                        <li><a href="#!"><i class="material-icons">cancel</i>Eliminar Vehiculo</a></li>
                         <li><a href="#!"><i class="material-icons">power_settings_new</i>Log out</a></li>
                     </ul>        
                 </nav>
@@ -70,57 +69,43 @@
             <div class="section"></div>
             <!--FORMULARIO-->
             <div class="row container">
-                <form class="col s12" method="post" action="../../ServletUsuario?accion=registrar">
+                <form class="col s12" method="post" action="../../ServletVehiculo?accion=registrar">
                     <div class="row">
                         <div class="col s12 l6">
                             <div class="card z-depth-4">
                                 <div class="class card-content">
                                     <div class="row">			
                                         <div class="input-field col s12">
-                                            <i class="material-icons prefix">perm_identity</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="nombre_usuario">
-                                            <label for="icon_prefix">Nombre</label>
+                                            <i class="material-icons prefix">tab</i>
+                                            <input id="icon_prefix" type="text" class="validate" name="codigo">
+                                            <label for="icon_prefix">Codigo</label>
                                         </div>
                                     </div>	
                                     <div class="row">			
                                         <div class="input-field col s12">
-                                            <i class="material-icons prefix">library_books</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="ap_paterno">
-                                            <label for="icon_prefix">1er Apellido</label>
+                                            <i class="material-icons prefix">drive_eta</i>
+                                            <input id="icon_prefix" type="text" class="validate" name="patente">
+                                            <label for="icon_prefix">Patente</label>
                                         </div>
-                                    </div>
-                                    <div class="row">			
-                                        <div class="input-field col s12">
-                                            <i class="material-icons prefix">library_books</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="ap_materno">
-                                            <label for="icon_prefix">2do Apellido</label>
-                                        </div>
-                                    </div>
+                                    </div>                                   
                                 </div>		
                             </div>
                         </div>
                         <div class="col s12 l6">
                             <div class="card z-depth-4">
                                 <div class="class card-content">
-                                    <div class="row">			
+                                    <div class="row">						
                                         <div class="input-field col s12">
-                                            <i class="material-icons prefix">tab</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="rut">
-                                            <label for="icon_prefix">Rut</label>
+                                            <i class="material-icons prefix">library_books</i>
+                                            <input id="icon_prefix" type="text" class="validate" name="marca">
+                                            <label for="icon_prefix">Marca</label>
                                         </div>
-                                    </div>	
-                                    <div class="row">			
+                                    </div> 
+                                    <div class="row">
                                         <div class="input-field col s12">
-                                            <i class="material-icons prefix">account_circle</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="username">
-                                            <label for="icon_prefix">Username</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">			
-                                        <div class="input-field col s12">
-                                            <i class="material-icons prefix">vpn_key</i>
-                                            <input id="icon_prefix" type="password" class="validate" name="clave">
-                                            <label for="icon_prefix">Password</label>
+                                            <i class="material-icons prefix">library_books</i>
+                                            <input id="icon_prefix" type="text" class="validate" name="modelo">
+                                            <label for="icon_prefix">Modelo</label>
                                         </div>
                                     </div>
                                 </div>		
@@ -128,6 +113,26 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="input-field col s6">
+                            <select name="vehiculo_id">
+                                <% conexion.setSQL("select * from tipo_vehiculos");
+                                   while(conexion.getRs().next()){
+                                %>
+                                <option value="<% out.println(conexion.getRs().getString("tipo_vehiculo_id")); %>"><% out.println(conexion.getRs().getString("tipo")); %></option>
+                                <% } %>
+                            </select>
+                            <label>Codigo Vehiculo</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <select name="obra_id">
+                                <% conexion.setSQL("select * from estado_vehiculos");
+                                   while(conexion.getRs().next()){
+                                %>
+                                <option value="<% out.println(conexion.getRs().getString("estado_id")); %>"><% out.println(conexion.getRs().getString("estado")); %></option>
+                                <% } %>
+                            </select>
+                            <label>Obra</label>
+                        </div>
                         <div class="input-field col s6">
                             <select name="empresa_id">
                                 <% conexion.setSQL("select * from empresas");
@@ -137,23 +142,22 @@
                                 <% } %>
                             </select>
                             <label>Empresa</label>
-                        </div>
+                        </div>    
                         <div class="input-field col s6">
-                            <select name="privilegio_id">
-                                <% conexion.setSQL("select * from privilegios");
+                            <select name="obra_id">
+                                <% conexion.setSQL("select * from obras");
                                    while(conexion.getRs().next()){
                                 %>
-                                <option value="<% out.println(conexion.getRs().getString("privilegio_id")); %>"><% out.println(conexion.getRs().getString("tipo_privilegio")); %></option>
+                                <option value="<% out.println(conexion.getRs().getString("obra_id")); %>"><% out.println(conexion.getRs().getString("nombre_obra")); %></option>
                                 <% } %>
                             </select>
-                            <label>Privilegio de usuario</label>
-                        </div>
+                            <label>Obra</label>
+                        </div>     
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Crear usuario
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Crear chofer
                         <i class="material-icons right">send</i>
                     </button>
                 </form>
-            </div>
         </main>
         <!--PIE DE PAGINA-->
         <footer class="page-footer blue-grey darken-4">

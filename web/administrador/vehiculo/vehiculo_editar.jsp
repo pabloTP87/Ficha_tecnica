@@ -1,9 +1,8 @@
 <%-- 
-    Document   : chofer_editar
-    Created on : 22-07-2017, 1:41:30
+    Document   : vehiculo_editar
+    Created on : 22-07-2017, 2:46:41
     Author     : Galmier
 --%>
-
 <%@page import="Acceso.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -57,9 +56,9 @@
                         </li>
                         <li class="divider"></li>
                         <li><a href="../inicio.jsp"><i class="material-icons">home</i>Inicio</a></li>
-                        <li><a href="chofer_crear.jsp"><i class="material-icons">person</i>Ingresar chofer</a></li>
-                        <li><a href="chofer_editar.jsp"><i class="material-icons">settings</i>Editar Chofer</a></li>
-                        <li><a href="#!"><i class="material-icons">cancel</i>Eliminar Chofer</a></li>
+                        <li><a href="vehiculo_crear.jsp"><i class="material-icons">person</i>Ingresar Vehiculo</a></li>
+                        <li><a href="vehiculo_editar.jsp"><i class="material-icons">settings</i>Editar Vehiculo</a></li>
+                        <li><a href="#!"><i class="material-icons">cancel</i>Eliminar Vehiculo</a></li>
                         <li><a href="#!"><i class="material-icons">power_settings_new</i>Log out</a></li>
                     </ul>        
                 </nav>
@@ -70,26 +69,30 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Nombre</th>
-                            <th>1er Apellido</th>
-                            <th>Rut</th>
+                            <th>Codigo</th>
+                            <th>Patente</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Tipo Vehiculo</th>
                             <th>Empresa</th>
-                            <th>Vehiculo</th>
+                            <th>Estado</th>
                             <th>Obra</th>
                         </tr>
                     </thead>
 
                     <tbody>
                          <% Conexion conexion=new Conexion();
-                            conexion.setSQL("SELECT choferes.chofer_id,choferes.nombre_chofer,choferes.ap_paterno,choferes.rut,empresas.nombre_empresa,vehiculos.codigo,obras.nombre_obra from choferes,empresas,vehiculos,obras WHERE  choferes.chofer_id=empresas.empresa_id and choferes.chofer_id=vehiculos.vehiculo_id and choferes.chofer_id=obras.obra_id and estado='activo'");
+                            conexion.setSQL("SELECT vehiculos.vehiculo_id,vehiculos.codigo,vehiculos.patente,vehiculos.marca,vehiculos.modelo,tipo_vehiculos.tipo,empresas.nombre_empresa,estado_vehiculos.estado,obras.nombre_obra from vehiculos,tipo_vehiculos,empresas,estado_vehiculos,obras WHERE vehiculos.vehiculo_id=tipo_vehiculos.tipo_vehiculo_id and vehiculos.vehiculo_id=empresas.empresa_id and vehiculos.vehiculo_id=estado_vehiculos.estado_id and choferes.chofer_id=obras.obra_id and estado='activo'");
                             while(conexion.getRs().next()){
                                 out.println("<tr>");
-                                out.println("<td>"+conexion.getRs().getString("chofer_id")+"</td>");
-                                out.println("<td>"+conexion.getRs().getString("nombre_chofer")+"</td>");
-                                out.println("<td>"+conexion.getRs().getString("ap_paterno")+"</td>");
-                                out.println("<td>"+conexion.getRs().getString("rut")+"</td>");
-                                out.println("<td>"+conexion.getRs().getString("nombre_empresa")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("vehiculo_id")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("codigo")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("patente")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("marca")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("modelo")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("tipo")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("nombre_empresa")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("estdo")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("nombre_obra")+"</td>");
                                 out.println("</tr>");
                             }
