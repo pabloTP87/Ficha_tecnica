@@ -4,8 +4,18 @@
     Author     : Pablo
 --%>
 
+<%@page import="Acceso.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    HttpSession sesion=request.getSession();
+    if(sesion.getAttribute("conectado")==null || sesion.getAttribute("conectado").equals("false") || sesion.getAttribute("conectado").equals("true-invitado")){
+        response.sendRedirect("../../index.jsp");
+    }
+    else{
+        
+    }
+%>
 <html>
     <head>
         <!--Import Google Icon Font-->
@@ -62,29 +72,27 @@
                             <th>Id</th>
                             <th>Nombre</th>
                             <th>1er Apellido</th>
-                            <th>2do Apellido</th>
-                            <th>Rut</th>
                             <th>Username</th>
                             <th>Empresa</th>
-                            <th>Privilegio de usuario</th>
-                            <th>Editar</th>
-                            <th>Eliminar</th>
+                            <th>Privilegio</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>Alvin</td>
-                            <td>Eclair</td>
-                            <td>$0.87</td>
-                            <td>Alvin</td>
-                            <td>Eclair</td>
-                            <td>$0.87</td>
-                            <td>$0.87</td>
-                            <td>Eclair</td>
-                            <td>$0.87</td>
-                            <td>$0.87</td>
-                        </tr>
+                         <% Conexion conexion=new Conexion();
+                            conexion.setSQL("SELECT usuarios.usuario_id,usuarios.nombre_usuario,usuarios.ap_paterno,usuarios.username,empresas.nombre_empresa,privilegios.tipo_privilegio from usuarios,empresas,privilegios WHERE  usuarios.empresa_id=empresas.empresa_id and usuarios.privilegio_id=privilegios.privilegio_id and estado='activo'");
+                            while(conexion.getRs().next()){
+                                out.println("<tr>");
+                                out.println("<td>"+conexion.getRs().getString("usuario_id")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("nombre_usuario")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("ap_paterno")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("username")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("nombre_empresa")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("tipo_privilegio")+"</td>");
+                                out.println("</tr>");
+                            }
+                         %> 
+                        
                     </tbody>
                 </table>
             </div>  

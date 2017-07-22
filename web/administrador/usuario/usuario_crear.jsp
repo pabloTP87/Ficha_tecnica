@@ -4,8 +4,21 @@
     Author     : Sammy Guergachi <sguergachi at gmail.com>
 --%>
 
+<%@page import="Acceso.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    HttpSession sesion=request.getSession();
+    if(sesion.getAttribute("conectado")==null || sesion.getAttribute("conectado").equals("false") || sesion.getAttribute("conectado").equals("true-invitado")){
+        response.sendRedirect("../../index.jsp");
+    }
+    else{
+        
+    }
+%>
+<%
+    Conexion conexion=new Conexion();
+%>
 <html>
     <head>
         <!--Import Google Icon Font-->
@@ -57,7 +70,7 @@
             <div class="section"></div>
             <!--FORMULARIO-->
             <div class="row container">
-                <form class="col s12">
+                <form class="col s12" method="post" action="../../ServletUsuario?accion=registrar">
                     <div class="row">
                         <div class="col s12 l6">
                             <div class="card z-depth-4">
@@ -116,20 +129,22 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            <select>
-                                <option value="" disabled selected>Selecionar</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                            <select name="empresa_id">
+                                <% conexion.setSQL("select * from empresas");
+                                   while(conexion.getRs().next()){
+                                %>
+                                <option value="<% out.println(conexion.getRs().getString("empresa_id")); %>"><% out.println(conexion.getRs().getString("nombre_empresa")); %></option>
+                                <% } %>
                             </select>
                             <label>Empresa</label>
                         </div>
                         <div class="input-field col s6">
-                            <select>
-                                <option value="" disabled selected>Selecionar</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                            <select name="privilegio_id">
+                                <% conexion.setSQL("select * from privilegios");
+                                   while(conexion.getRs().next()){
+                                %>
+                                <option value="<% out.println(conexion.getRs().getString("privilegio_id")); %>"><% out.println(conexion.getRs().getString("tipo_privilegio")); %></option>
+                                <% } %>
                             </select>
                             <label>Privilegio de usuario</label>
                         </div>
