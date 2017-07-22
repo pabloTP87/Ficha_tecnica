@@ -75,6 +75,8 @@
                             <th>Username</th>
                             <th>Empresa</th>
                             <th>Privilegio</th>
+                            <th>Editar</th>
+                            <th>Elimnar</th>
                         </tr>
                     </thead>
 
@@ -89,6 +91,8 @@
                                 out.println("<td>"+conexion.getRs().getString("username")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("nombre_empresa")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("tipo_privilegio")+"</td>");
+                                out.println("<td><a href=usuario_actualizar.jsp?edit="+conexion.getRs().getString("usuario_id")+">editar</a></td>");
+                                out.println("<td><a href=../../ServletUsuario?eliminar="+conexion.getRs().getString("usuario_id")+">eliminar</a></td>");
                                 out.println("</tr>");
                             }
                          %> 

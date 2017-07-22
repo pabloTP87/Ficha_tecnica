@@ -53,6 +53,9 @@ public class ServletUsuario extends HttpServlet {
                 usuario.save();
                 response.sendRedirect("administrador/usuario/usuario_editar.jsp");
             }
+            else if(request.getParameter("accion").equals("actualizar")){
+                
+            }
             else if(request.getParameter("accion").equals("cerrar")){
                 sesion.invalidate();
                 response.sendRedirect("index.jsp");
