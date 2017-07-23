@@ -15,70 +15,78 @@ public class ServletUsuario extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             Usuario usuario=new Usuario();
             HttpSession sesion=request.getSession();
-            if(request.getParameter("accion").equals("ingresar")){
-                String username=request.getParameter("username");
-                String clave=request.getParameter("clave");
-                usuario.setUsername(username);
-                usuario.setClave(clave);
-                if(usuario.validar()==1){
-                    sesion.setAttribute("conectado", "true-admin");
-                    response.sendRedirect("administrador/inicio.jsp");
+            if(request.getParameter("eliminar")==null){
+                if(request.getParameter("accion").equals("ingresar")){
+                    String username=request.getParameter("username");
+                    String clave=request.getParameter("clave");
+                    usuario.setUsername(username);
+                    usuario.setClave(clave);
+                    if(usuario.validar()==1){
+                        sesion.setAttribute("conectado", "true-admin");
+                        response.sendRedirect("administrador/inicio.jsp");
+                    }
+                    else if(usuario.validar()==2){
+                        sesion.setAttribute("conectado", "true-invitado");
+                        response.sendRedirect("invitado/invitado_inicio.jsp");
+                    }
+                    else{
+                        sesion.setAttribute("conectado", "false");
+                        response.sendRedirect("index.jsp");
+                    }
                 }
-                else if(usuario.validar()==2){
-                    sesion.setAttribute("conectado", "true-invitado");
-                    response.sendRedirect("invitado/invitado_inicio.jsp");
+                else if(request.getParameter("accion").equals("registrar")){
+                    String nombre_usuario=request.getParameter("nombre_usuario");
+                    String ap_paterno=request.getParameter("ap_paterno");
+                    String ap_materno=request.getParameter("ap_materno");
+                    String rut=request.getParameter("rut");
+                    String username=request.getParameter("username");
+                    String clave=request.getParameter("clave");
+                    String empresa_id=request.getParameter("empresa_id");
+                    String privilegio_id=request.getParameter("privilegio_id");
+                    usuario.setNombre_usuario(nombre_usuario);
+                    usuario.setAp_paterno(ap_paterno);
+                    usuario.setAp_materno(ap_materno);
+                    usuario.setRut(rut);
+                    usuario.setUsername(username);
+                    usuario.setClave(clave);
+                    usuario.setEmpresa_id(empresa_id);
+                    usuario.setPrivilegio_id(privilegio_id);
+                    usuario.save();
+                    response.sendRedirect("administrador/usuario/usuario_editar.jsp");
                 }
-                else{
-                    sesion.setAttribute("conectado", "false");
+                else if(request.getParameter("accion").equals("actualizar")){
+                    String usuario_id=request.getParameter("usuario_id");
+                    String nombre_usuario=request.getParameter("nombre_usuario");
+                    String ap_paterno=request.getParameter("ap_paterno");
+                    String ap_materno=request.getParameter("ap_materno");
+                    String rut=request.getParameter("rut");
+                    String username=request.getParameter("username");
+                    String clave=request.getParameter("clave");
+                    String empresa_id=request.getParameter("empresa_id");
+                    String privilegio_ig=request.getParameter("privilegio_id");
+                    usuario.setUsuario_id(usuario_id);
+                    usuario.setNombre_usuario(nombre_usuario);
+                    usuario.setAp_paterno(ap_paterno);
+                    usuario.setAp_materno(ap_materno);
+                    usuario.setRut(rut);
+                    usuario.setUsername(username);
+                    usuario.setClave(clave);
+                    usuario.setEmpresa_id(empresa_id);
+                    usuario.setPrivilegio_id(privilegio_ig);
+                    usuario.update();
+                    response.sendRedirect("administrador/usuario/usuario_editar.jsp");
+
+                }
+                else if(request.getParameter("accion").equals("cerrar")){
+                    sesion.invalidate();
                     response.sendRedirect("index.jsp");
                 }
-            }
-            else if(request.getParameter("accion").equals("registrar")){
-                String nombre_usuario=request.getParameter("nombre_usuario");
-                String ap_paterno=request.getParameter("ap_paterno");
-                String ap_materno=request.getParameter("ap_materno");
-                String rut=request.getParameter("rut");
-                String username=request.getParameter("username");
-                String clave=request.getParameter("clave");
-                String empresa_id=request.getParameter("empresa_id");
-                String privilegio_id=request.getParameter("privilegio_id");
-                usuario.setNombre_usuario(nombre_usuario);
-                usuario.setAp_paterno(ap_paterno);
-                usuario.setAp_materno(ap_materno);
-                usuario.setRut(rut);
-                usuario.setUsername(username);
-                usuario.setClave(clave);
-                usuario.setEmpresa_id(empresa_id);
-                usuario.setPrivilegio_id(privilegio_id);
-                usuario.save();
+            }    
+            else{
+                String id=request.getParameter("eliminar");
+                usuario.setUsuario_id(id);
+                usuario.delete();
                 response.sendRedirect("administrador/usuario/usuario_editar.jsp");
-            }
-            else if(request.getParameter("accion").equals("actualizar")){
-                String usuario_id=request.getParameter("usuario_id");
-                String nombre_usuario=request.getParameter("nombre_usuario");
-                String ap_paterno=request.getParameter("ap_paterno");
-                String ap_materno=request.getParameter("ap_materno");
-                String rut=request.getParameter("rut");
-                String username=request.getParameter("username");
-                String clave=request.getParameter("clave");
-                String empresa_id=request.getParameter("empresa_id");
-                String privilegio_ig=request.getParameter("privilegio_id");
-                usuario.setUsuario_id(usuario_id);
-                usuario.setNombre_usuario(nombre_usuario);
-                usuario.setAp_paterno(ap_paterno);
-                usuario.setAp_materno(ap_materno);
-                usuario.setRut(rut);
-                usuario.setUsername(username);
-                usuario.setClave(clave);
-                usuario.setEmpresa_id(empresa_id);
-                usuario.setPrivilegio_id(privilegio_ig);
-                usuario.update();
-                response.sendRedirect("administrador/usuario/usuario_editar.jsp");
-                
-            }
-            else if(request.getParameter("accion").equals("cerrar")){
-                sesion.invalidate();
-                response.sendRedirect("index.jsp");
             }
         }
     }
