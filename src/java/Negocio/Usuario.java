@@ -45,6 +45,9 @@ public class Usuario {
         return 0;
        
     }
+    public void update(){
+        con.runSql("update usuarios set nombre_usuario='"+this.getNombre_usuario()+"',ap_paterno='"+this.getAp_paterno()+"',ap_materno='"+this.getAp_materno()+"',rut='"+this.getRut()+"',username='"+this.getUsername()+"',clave='"+this.getClave()+"',empresa_id='"+this.getEmpresa_id()+"',privilegio_id='"+this.getPrivilegio_id()+"' where usuario_id='"+this.getUsuario_id()+"'");
+    }
 
     public String getUsuario_id() {
         return usuario_id;
