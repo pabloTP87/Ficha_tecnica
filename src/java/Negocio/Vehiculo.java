@@ -21,7 +21,7 @@ public class Vehiculo {
     con=new Conexion();
     }
     public void save(){
-        String sql="insert into vehiculos(codigo,patente,marca,modelo,imagen,estado,feha_creacion,tipo_vehiculo_id,empresa_id,estado_id,obra_id) values('"+this.getCodigo()+"','"+this.getPatente()+"','"+this.getMarca()+"','"+this.getModelo()+"','"+this.getImagen()+"','activo',now(),'"+this.getTipo_vehiculo_id()+"','"+this.getEmpresa_id()+"','"+this.getEstado_id()+"','"+this.getObra_id()+"')";
+        String sql="insert into vehiculos(codigo,patente,marca,modelo,imagen,estado,fecha_creacion,tipo_vehiculo_id,empresa_id,estado_id,obra_id) values('"+this.getCodigo()+"','"+this.getPatente()+"','"+this.getMarca()+"','"+this.getModelo()+"','"+this.getImagen()+"','activo',now(),'"+this.getTipo_vehiculo_id()+"','"+this.getEmpresa_id()+"','"+this.getEstado_id()+"','"+this.getObra_id()+"')";
         con.runSql(sql);
     }
 

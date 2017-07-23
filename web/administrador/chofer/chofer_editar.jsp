@@ -58,8 +58,7 @@
                         <li class="divider"></li>
                         <li><a href="../inicio.jsp"><i class="material-icons">home</i>Inicio</a></li>
                         <li><a href="chofer_crear.jsp"><i class="material-icons">person</i>Ingresar chofer</a></li>
-                        <li><a href="chofer_editar.jsp"><i class="material-icons">settings</i>Editar Chofer</a></li>
-                        <li><a href="#!"><i class="material-icons">cancel</i>Eliminar Chofer</a></li>
+                        <li><a href="chofer_editar.jsp"><i class="material-icons">settings</i>Editar Chofer</a></li>                       
                         <li><a href="#!"><i class="material-icons">power_settings_new</i>Log out</a></li>
                     </ul>        
                 </nav>
@@ -76,12 +75,14 @@
                             <th>Empresa</th>
                             <th>Vehiculo</th>
                             <th>Obra</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
                         </tr>
                     </thead>
 
                     <tbody>
                          <% Conexion conexion=new Conexion();
-                            conexion.setSQL("SELECT choferes.chofer_id,choferes.nombre_chofer,choferes.ap_paterno,choferes.rut,empresas.nombre_empresa,vehiculos.codigo,obras.nombre_obra from choferes,empresas,vehiculos,obras WHERE  choferes.chofer_id=empresas.empresa_id and choferes.chofer_id=vehiculos.vehiculo_id and choferes.chofer_id=obras.obra_id and estado='activo'");
+                            conexion.setSQL("SELECT choferes.chofer_id,choferes.nombre_chofer,choferes.ap_paterno,choferes.rut,empresas.nombre_empresa,vehiculos.codigo,obras.nombre_obra from choferes,empresas,vehiculos,obras WHERE  choferes.empresa_id=empresas.empresa_id and choferes.vehiculo_id=vehiculos.vehiculo_id and choferes.obra_id=obras.obra_id");
                             while(conexion.getRs().next()){
                                 out.println("<tr>");
                                 out.println("<td>"+conexion.getRs().getString("chofer_id")+"</td>");
@@ -91,6 +92,8 @@
                                 out.println("<td>"+conexion.getRs().getString("nombre_empresa")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("codigo")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("nombre_obra")+"</td>");
+                                out.println("<td><a href=chofer_actualizar.jsp?edit="+conexion.getRs().getString("chofer_id")+">editar</a></td>");
+                                out.println("<td><a href=../../ServletChofer?eliminar="+conexion.getRs().getString("chofer_id")+">eliminar</a></td>");
                                 out.println("</tr>");
                             }
                          %> 

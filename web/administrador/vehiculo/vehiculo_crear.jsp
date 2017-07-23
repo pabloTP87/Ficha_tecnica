@@ -46,7 +46,7 @@
                             <li class="divider"></li>
                             <li><a href="#!">Obras</a></li>
                         </ul>
-                        <button type="button" id="w11" class="sidenav-toggle btn teal lighten-1" data-activates="slide-out" style="margin-left: 60px">Menu</button>
+                        <button type="button" id="w11" class="sidenav-toggle btn teal lighten-1" data-activates="slide-out" style="margin-left: 50px">Menu</button>
                     </div>  
                     <!--Barra Lateral con los Menus-->
                     <ul id="slide-out" class="side-nav">
@@ -60,8 +60,7 @@
                         <li class="divider"></li>
                         <li><a href="../inicio.jsp"><i class="material-icons">home</i>Inicio</a></li>
                         <li><a href="vehiculo_crear.jsp"><i class="material-icons">person</i>Ingresar Vehiculo</a></li>
-                        <li><a href="vehiculo_editar.jsp"><i class="material-icons">settings</i>Editar Vehiculo</a></li>
-                        <li><a href="#!"><i class="material-icons">cancel</i>Eliminar Vehiculo</a></li>
+                        <li><a href="vehiculo_editar.jsp"><i class="material-icons">settings</i>Editar Vehiculo</a></li>                       
                         <li><a href="#!"><i class="material-icons">power_settings_new</i>Log out</a></li>
                     </ul>        
                 </nav>
@@ -87,7 +86,14 @@
                                             <input id="icon_prefix" type="text" class="validate" name="patente">
                                             <label for="icon_prefix">Patente</label>
                                         </div>
-                                    </div>                                   
+                                    </div>
+                                    <div class="row">						
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">library_books</i>
+                                            <input id="icon_prefix" type="text" class="validate" name="marca">
+                                            <label for="icon_prefix">Marca</label>
+                                        </div>
+                                    </div> 
                                 </div>		
                             </div>
                         </div>
@@ -97,15 +103,15 @@
                                     <div class="row">						
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">library_books</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="marca">
-                                            <label for="icon_prefix">Marca</label>
+                                            <input id="icon_prefix" type="text" class="validate" name="modelo">
+                                            <label for="icon_prefix">Modelo</label>
                                         </div>
                                     </div> 
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">library_books</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="modelo">
-                                            <label for="icon_prefix">Modelo</label>
+                                            <input id="icon_prefix" type="text" class="validate" name="imagen">
+                                            <label for="icon_prefix">Imagen</label>
                                         </div>
                                     </div>
                                 </div>		
@@ -114,24 +120,24 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            <select name="vehiculo_id">
+                            <select name="tipo_vehiculo_id">
                                 <% conexion.setSQL("select * from tipo_vehiculos");
                                    while(conexion.getRs().next()){
                                 %>
                                 <option value="<% out.println(conexion.getRs().getString("tipo_vehiculo_id")); %>"><% out.println(conexion.getRs().getString("tipo")); %></option>
                                 <% } %>
                             </select>
-                            <label>Codigo Vehiculo</label>
+                            <label>Tipo de Vehiculo</label>
                         </div>
                         <div class="input-field col s6">
-                            <select name="obra_id">
+                            <select name="estado_id">
                                 <% conexion.setSQL("select * from estado_vehiculos");
                                    while(conexion.getRs().next()){
                                 %>
                                 <option value="<% out.println(conexion.getRs().getString("estado_id")); %>"><% out.println(conexion.getRs().getString("estado")); %></option>
                                 <% } %>
                             </select>
-                            <label>Obra</label>
+                            <label>Estado de vehiculo</label>
                         </div>
                         <div class="input-field col s6">
                             <select name="empresa_id">
@@ -154,7 +160,7 @@
                             <label>Obra</label>
                         </div>     
                     </div>
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Crear chofer
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Crear Vehiculo
                         <i class="material-icons right">send</i>
                     </button>
                 </form>

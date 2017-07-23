@@ -57,8 +57,7 @@
                         <li class="divider"></li>
                         <li><a href="../inicio.jsp"><i class="material-icons">home</i>Inicio</a></li>
                         <li><a href="vehiculo_crear.jsp"><i class="material-icons">person</i>Ingresar Vehiculo</a></li>
-                        <li><a href="vehiculo_editar.jsp"><i class="material-icons">settings</i>Editar Vehiculo</a></li>
-                        <li><a href="#!"><i class="material-icons">cancel</i>Eliminar Vehiculo</a></li>
+                        <li><a href="vehiculo_editar.jsp"><i class="material-icons">settings</i>Editar Vehiculo</a></li>                        
                         <li><a href="#!"><i class="material-icons">power_settings_new</i>Log out</a></li>
                     </ul>        
                 </nav>
@@ -77,12 +76,14 @@
                             <th>Empresa</th>
                             <th>Estado</th>
                             <th>Obra</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
                         </tr>
                     </thead>
 
                     <tbody>
                          <% Conexion conexion=new Conexion();
-                            conexion.setSQL("SELECT vehiculos.vehiculo_id,vehiculos.codigo,vehiculos.patente,vehiculos.marca,vehiculos.modelo,tipo_vehiculos.tipo,empresas.nombre_empresa,estado_vehiculos.estado,obras.nombre_obra from vehiculos,tipo_vehiculos,empresas,estado_vehiculos,obras WHERE vehiculos.vehiculo_id=tipo_vehiculos.tipo_vehiculo_id and vehiculos.vehiculo_id=empresas.empresa_id and vehiculos.vehiculo_id=estado_vehiculos.estado_id and choferes.chofer_id=obras.obra_id and estado='activo'");
+                            conexion.setSQL("SELECT vehiculos.vehiculo_id,vehiculos.codigo,vehiculos.patente,vehiculos.marca,vehiculos.modelo,tipo_vehiculos.tipo,empresas.nombre_empresa,estado_vehiculos.estado,obras.nombre_obra from vehiculos,tipo_vehiculos,empresas,estado_vehiculos,obras WHERE vehiculos.tipo_vehiculo_id=tipo_vehiculos.tipo_vehiculo_id and vehiculos.empresa_id=empresas.empresa_id and vehiculos.estado_id=estado_vehiculos.estado_id and vehiculos.obra_id=obras.obra_id ");
                             while(conexion.getRs().next()){
                                 out.println("<tr>");
                                 out.println("<td>"+conexion.getRs().getString("vehiculo_id")+"</td>");
@@ -92,8 +93,10 @@
                                 out.println("<td>"+conexion.getRs().getString("modelo")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("tipo")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("nombre_empresa")+"</td>");
-                                out.println("<td>"+conexion.getRs().getString("estdo")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("estado")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("nombre_obra")+"</td>");
+                                out.println("<td><a href=vehiculo_actualizar.jsp?edit="+conexion.getRs().getString("vehiculo_id")+">editar</a></td>");
+                                out.println("<td><a href=../../ServletVehiculo?eliminar="+conexion.getRs().getString("vehiculo_id")+">eliminar</a></td>");
                                 out.println("</tr>");
                             }
                          %> 

@@ -18,7 +18,8 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     String codigo=request.getParameter("codigo");
                     String patente=request.getParameter("patente");
                     String marca=request.getParameter("marca");
-                    String modelo=request.getParameter("modelo");                   
+                    String modelo=request.getParameter("modelo");
+                    String imagen=request.getParameter("imagen");  
                     String tipo_vehiculo_id=request.getParameter("tipo_vehiculo_id");
                     String empresa_id=request.getParameter("empresa_id");
                     String estado_id=request.getParameter("estado_id");
@@ -27,6 +28,7 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     vehiculo.setPatente(patente);
                     vehiculo.setMarca(marca);
                     vehiculo.setModelo(modelo);
+                    vehiculo.setImagen(imagen);
                     vehiculo.setTipo_vehiculo_id(tipo_vehiculo_id);
                     vehiculo.setEmpresa_id(empresa_id);
                     vehiculo.setEstado_id(estado_id);
