@@ -62,7 +62,6 @@
                         <li><a href="../inicio.jsp"><i class="material-icons">home</i>Inicio</a></li>
                         <li><a href="usuario_crear.jsp"><i class="material-icons">person</i>Ingresar Usuario</a></li>
                         <li><a href="usuario_editar.jsp"><i class="material-icons">settings</i>Editar Usuario</a></li>
-                        <li><a href="#!"><i class="material-icons">cancel</i>Eliminiar Usuario</a></li>
                         <li><a href="#!"><i class="material-icons">power_settings_new</i>Log out</a></li>
                     </ul>        
                 </nav>
@@ -70,6 +69,7 @@
             <div class="section"></div>
             <!--FORMULARIO-->
             <div class="row container">
+                <h5>Ingrese nuevo usuario al sistema:</h5>
                 <form class="col s12" method="post" action="../../ServletUsuario?accion=registrar">
                     <div class="row">
                         <div class="col s12 l6">
@@ -156,6 +156,7 @@
             </div>
         </main>
         <!--PIE DE PAGINA-->
+        <div class="section"></div>
         <footer class="page-footer blue-grey darken-4">
             <div class="footer-copyright">
                 <div class="container">

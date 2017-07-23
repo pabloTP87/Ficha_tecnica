@@ -59,14 +59,14 @@
                         <li><a href="../inicio.jsp"><i class="material-icons">home</i>Inicio</a></li>
                         <li><a href="usuario_crear.jsp"><i class="material-icons">person</i>Ingresar Usuario</a></li>
                         <li><a href="usuario_editar.jsp"><i class="material-icons">settings</i>Editar Usuario</a></li>
-                        <li><a href="#!"><i class="material-icons">cancel</i>Eliminiar Usuario</a></li>
                         <li><a href="#!"><i class="material-icons">power_settings_new</i>Log out</a></li>
                     </ul>        
                 </nav>
             </div>
             <div class="section"></div>
-            <div class="">
-                <table class="responsive-table bordered">
+            <div class="container">
+                <h5>Usuarios ingresados en el sistema:</h5>
+                <table class="responsive-table bordered highlight">
                     <thead>
                         <tr>
                             <th>Id</th>
