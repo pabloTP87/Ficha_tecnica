@@ -24,7 +24,8 @@ public class Chofer {
     }
     
     public void delete(){
-        con.runSql("delete from choferes where chofer_id='"+this.getChofer_id()+"'");
+        //con.runSql("delete from choferes where chofer_id='"+this.getChofer_id()+"'");
+        con.runSql("update choferes set estado='pasivo' where chofer_id='"+this.getChofer_id()+"'");
     }
     public void save(){
         String sql="insert into choferes(nombre_chofer,ap_paterno,ap_materno,rut,estado,fecha_creacion,empresa_id,vehiculo_id,obra_id) values('"+this.getNombre_chofer()+"','"+this.getAp_paterno()+"','"+this.getAp_materno()+"','"+this.getRut()+"','activo',now(),'"+this.getEmpresa_id()+"','"+this.getVehiculo_id()+"','"+this.getObra_id()+"')";

@@ -84,7 +84,7 @@
 
                     <tbody>
                          <% Conexion conexion=new Conexion();
-                            conexion.setSQL("SELECT vehiculos.vehiculo_id,vehiculos.codigo,vehiculos.patente,vehiculos.marca,vehiculos.modelo,tipo_vehiculos.tipo,empresas.nombre_empresa,estado_vehiculos.estado,obras.nombre_obra from vehiculos,tipo_vehiculos,empresas,estado_vehiculos,obras WHERE vehiculos.tipo_vehiculo_id=tipo_vehiculos.tipo_vehiculo_id and vehiculos.empresa_id=empresas.empresa_id and vehiculos.estado_id=estado_vehiculos.estado_id and vehiculos.obra_id=obras.obra_id ");
+                            conexion.setSQL("SELECT vehiculos.vehiculo_id,vehiculos.codigo,vehiculos.patente,vehiculos.marca,vehiculos.modelo,tipo_vehiculos.tipo,empresas.nombre_empresa,estado_vehiculos.estado,obras.nombre_obra from vehiculos,tipo_vehiculos,empresas,estado_vehiculos,obras WHERE vehiculos.tipo_vehiculo_id=tipo_vehiculos.tipo_vehiculo_id and vehiculos.empresa_id=empresas.empresa_id and vehiculos.estado_id=estado_vehiculos.estado_id and vehiculos.obra_id=obras.obra_id and vehiculos.estado='activo'");
                             while(conexion.getRs().next()){
                                 out.println("<tr>");
                                 out.println("<td>"+conexion.getRs().getString("vehiculo_id")+"</td>");

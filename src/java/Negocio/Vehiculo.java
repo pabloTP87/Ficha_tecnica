@@ -26,7 +26,8 @@ public class Vehiculo {
     }
     
     public void delete(){
-        con.runSql("delete from vehiculos where vehiculo_id='"+this.getVehiculo_id()+"'");
+        //con.runSql("delete from vehiculos where vehiculo_id='"+this.getVehiculo_id()+"'");
+        con.runSql("update vehiculos set estado='pasivo' where vehiculo_id='"+this.getVehiculo_id()+"'");
     }
     public void save(){
         String sql="insert into vehiculos(codigo,patente,marca,modelo,imagen,estado,fecha_creacion,tipo_vehiculo_id,empresa_id,estado_id,obra_id) values('"+this.getCodigo()+"','"+this.getPatente()+"','"+this.getMarca()+"','"+this.getModelo()+"','"+this.getImagen()+"','activo',now(),'"+this.getTipo_vehiculo_id()+"','"+this.getEmpresa_id()+"','"+this.getEstado_id()+"','"+this.getObra_id()+"')";

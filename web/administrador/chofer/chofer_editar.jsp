@@ -84,7 +84,7 @@
 
                     <tbody>
                          <% Conexion conexion=new Conexion();
-                            conexion.setSQL("SELECT choferes.chofer_id,choferes.nombre_chofer,choferes.ap_paterno,choferes.ap_materno,choferes.rut,empresas.nombre_empresa,vehiculos.codigo,obras.nombre_obra from choferes,empresas,vehiculos,obras WHERE  choferes.empresa_id=empresas.empresa_id and choferes.vehiculo_id=vehiculos.vehiculo_id and choferes.obra_id=obras.obra_id");
+                            conexion.setSQL("SELECT choferes.chofer_id,choferes.nombre_chofer,choferes.ap_paterno,choferes.ap_materno,choferes.rut,empresas.nombre_empresa,vehiculos.codigo,obras.nombre_obra from choferes,empresas,vehiculos,obras WHERE  choferes.empresa_id=empresas.empresa_id and choferes.vehiculo_id=vehiculos.vehiculo_id and choferes.obra_id=obras.obra_id and choferes.estado='activo'");
                             while(conexion.getRs().next()){
                                 out.println("<tr>");
                                 out.println("<td>"+conexion.getRs().getString("chofer_id")+"</td>");
