@@ -25,12 +25,12 @@
                         <div class="input-field">
                             <i class="material-icons prefix">account_circle</i>
                             <label>Usuario</label>
-                            <input type="text" name="username">
+                            <input type="text" name="username"  required>
                         </div>
                         <div class="input-field">
                             <i class="material-icons prefix">lock</i>
                             <label>Clave</label>
-                            <input type="password" name="clave">
+                            <input type="password" name="clave" required>
                         </div>
                         <div class="center">
                             <button type="submit" class="waves-effect waves-light btn z-depth-5">Ingresar</button>

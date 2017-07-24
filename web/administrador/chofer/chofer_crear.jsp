@@ -71,14 +71,14 @@
                                     <div class="row">			
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">perm_identity</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="nombre_chofer">
+                                            <input id="icon_prefix" type="text" class="validate" name="nombre_chofer" required>
                                             <label for="icon_prefix">Nombre</label>
                                         </div>
                                     </div>	
                                     <div class="row">			
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">library_books</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="ap_paterno">
+                                            <input id="icon_prefix" type="text" class="validate" name="ap_paterno" required>
                                             <label for="icon_prefix">1er Apellido</label>
                                         </div>
                                     </div>                                   
@@ -91,14 +91,14 @@
                                     <div class="row">						
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">library_books</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="ap_materno">
+                                            <input id="icon_prefix" type="text" class="validate" name="ap_materno" required>
                                             <label for="icon_prefix">2do Apellido</label>
                                         </div>
                                     </div> 
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">tab</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="rut">
+                                            <input id="icon_prefix" type="text" class="validate" name="rut" required>
                                             <label for="icon_prefix">Rut</label>
                                         </div>
                                     </div>

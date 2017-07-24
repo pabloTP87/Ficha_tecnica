@@ -77,21 +77,21 @@
                                     <div class="row">			
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">tab</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="codigo">
+                                            <input id="icon_prefix" type="text" class="validate" name="codigo" required>
                                             <label for="icon_prefix">Codigo</label>
                                         </div>
                                     </div>	
                                     <div class="row">			
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">drive_eta</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="patente">
+                                            <input id="icon_prefix" type="text" class="validate" name="patente" required>
                                             <label for="icon_prefix">Patente</label>
                                         </div>
                                     </div>
                                     <div class="row">						
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">library_books</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="marca">
+                                            <input id="icon_prefix" type="text" class="validate" name="marca" required>
                                             <label for="icon_prefix">Marca</label>
                                         </div>
                                     </div> 
@@ -104,14 +104,14 @@
                                     <div class="row">						
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">library_books</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="modelo">
+                                            <input id="icon_prefix" type="text" class="validate" name="modelo" required>
                                             <label for="icon_prefix">Modelo</label>
                                         </div>
                                     </div> 
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <i class="material-icons prefix">collections</i>
-                                            <input id="icon_prefix" type="text" class="validate" name="imagen">
+                                            <input id="icon_prefix" type="text" class="validate" name="imagen" required>
                                             <label for="icon_prefix">Imagen</label>
                                         </div>
                                     </div>
