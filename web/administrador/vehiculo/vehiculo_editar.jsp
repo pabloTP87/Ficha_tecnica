@@ -39,7 +39,7 @@
                         <ul id="dropdown1" class="dropdown-content">
                             <li><a href="#!">Gerencia</a></li>
                             <li class="divider"></li>
-                            <li><a href="#!">Choferes</a></li>
+                            <li><a href="#!">Empresas</a></li>
                             <li class="divider"></li>
                             <li><a href="#!">Obras</a></li>
                         </ul>
@@ -63,8 +63,9 @@
                 </nav>
             </div>
             <div class="section"></div>
-            <div class="">
-                <table class="responsive-table bordered">
+            <div class="container">
+                <h5>Vehiculos ingresados en el sistema:</h5>
+                <table class="responsive-table bordered highlight">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -95,14 +96,21 @@
                                 out.println("<td>"+conexion.getRs().getString("nombre_empresa")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("estado")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("nombre_obra")+"</td>");
-                                out.println("<td><a href=vehiculo_actualizar.jsp?edit="+conexion.getRs().getString("vehiculo_id")+">editar</a></td>");
-                                out.println("<td><a href=../../ServletVehiculo?eliminar="+conexion.getRs().getString("vehiculo_id")+">eliminar</a></td>");
+                                out.println("<td><a href=vehiculo_actualizar.jsp?edit="+conexion.getRs().getString("vehiculo_id")+">Editar</a></td>");
+                                out.println("<td><a href=../../ServletVehiculo?eliminar="+conexion.getRs().getString("vehiculo_id")+">Eliminar</a></td>");
                                 out.println("</tr>");
                             }
                          %> 
                         
                     </tbody>
                 </table>
+                    <form action="vehiculo_crear.jsp">
+                        <div class="input-field col s12">    
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Crear nuevo vehiculo
+                                <i class="material-icons right">send</i>
+                            </button>      
+                        </div>
+                    </form>         
             </div>  
         </main>
         <!--PIE DE PAGINA-->

@@ -40,7 +40,7 @@
                         <ul id="dropdown1" class="dropdown-content">
                             <li><a href="#!">Gerencia</a></li>
                             <li class="divider"></li>
-                            <li><a href="#!">Choferes</a></li>
+                            <li><a href="#!">Empresas</a></li>
                             <li class="divider"></li>
                             <li><a href="#!">Obras</a></li>
                         </ul>
@@ -57,20 +57,22 @@
                         </li>
                         <li class="divider"></li>
                         <li><a href="../inicio.jsp"><i class="material-icons">home</i>Inicio</a></li>
-                        <li><a href="chofer_crear.jsp"><i class="material-icons">person</i>Ingresar chofer</a></li>
-                        <li><a href="chofer_editar.jsp"><i class="material-icons">settings</i>Editar Chofer</a></li>                       
+                        <li><a href="chofer_crear.jsp"><i class="material-icons">person</i>Ingresar Chofer</a></li>
+                        <li><a href="chofer_editar.jsp"><i class="material-icons">settings</i>Editar Chofer</a></li>
                         <li><a href="../../ServletChofer?accion=cerrar"><i class="material-icons">power_settings_new</i>Log out</a></li>
                     </ul>        
                 </nav>
             </div>
             <div class="section"></div>
-            <div class="">
-                <table class="responsive-table bordered">
+            <div class="container">
+                <h5>Choferes ingresados en el sistema:</h5>
+                <table class="responsive-table bordered highlight">
                     <thead>
                         <tr>
                             <th>Id</th>
                             <th>Nombre</th>
                             <th>1er Apellido</th>
+                            <th>2do Apellido</th>
                             <th>Rut</th>
                             <th>Empresa</th>
                             <th>Vehiculo</th>
@@ -82,24 +84,32 @@
 
                     <tbody>
                          <% Conexion conexion=new Conexion();
-                            conexion.setSQL("SELECT choferes.chofer_id,choferes.nombre_chofer,choferes.ap_paterno,choferes.rut,empresas.nombre_empresa,vehiculos.codigo,obras.nombre_obra from choferes,empresas,vehiculos,obras WHERE  choferes.empresa_id=empresas.empresa_id and choferes.vehiculo_id=vehiculos.vehiculo_id and choferes.obra_id=obras.obra_id");
+                            conexion.setSQL("SELECT choferes.chofer_id,choferes.nombre_chofer,choferes.ap_paterno,choferes.ap_materno,choferes.rut,empresas.nombre_empresa,vehiculos.codigo,obras.nombre_obra from choferes,empresas,vehiculos,obras WHERE  choferes.empresa_id=empresas.empresa_id and choferes.vehiculo_id=vehiculos.vehiculo_id and choferes.obra_id=obras.obra_id");
                             while(conexion.getRs().next()){
                                 out.println("<tr>");
                                 out.println("<td>"+conexion.getRs().getString("chofer_id")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("nombre_chofer")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("ap_paterno")+"</td>");
+                                out.println("<td>"+conexion.getRs().getString("ap_materno")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("rut")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("nombre_empresa")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("codigo")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("nombre_obra")+"</td>");
-                                out.println("<td><a href=chofer_actualizar.jsp?edit="+conexion.getRs().getString("chofer_id")+">editar</a></td>");
-                                out.println("<td><a href=../../ServletChofer?eliminar="+conexion.getRs().getString("chofer_id")+">eliminar</a></td>");
+                                out.println("<td><a href=chofer_actualizar.jsp?edit="+conexion.getRs().getString("chofer_id")+">Editar</a></td>");
+                                out.println("<td><a href=../../ServletChofer?eliminar="+conexion.getRs().getString("chofer_id")+">Eliminar</a></td>");
                                 out.println("</tr>");
                             }
                          %> 
                         
                     </tbody>
                 </table>
+                    <form action="chofer_crear.jsp">
+                        <div class="input-field col s12">    
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Crear nuevo chofer
+                                <i class="material-icons right">send</i>
+                            </button>      
+                        </div>
+                    </form>         
             </div>  
         </main>
         <!--PIE DE PAGINA-->

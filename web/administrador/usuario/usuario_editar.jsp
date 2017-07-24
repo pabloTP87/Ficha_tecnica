@@ -40,7 +40,7 @@
                         <ul id="dropdown1" class="dropdown-content">
                             <li><a href="#!">Gerencia</a></li>
                             <li class="divider"></li>
-                            <li><a href="#!">Choferes</a></li>
+                            <li><a href="#!">Empresas</a></li>
                             <li class="divider"></li>
                             <li><a href="#!">Obras</a></li>
                         </ul>
@@ -91,15 +91,22 @@
                                 out.println("<td>"+conexion.getRs().getString("username")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("nombre_empresa")+"</td>");
                                 out.println("<td>"+conexion.getRs().getString("tipo_privilegio")+"</td>");
-                                out.println("<td><a href=usuario_actualizar.jsp?edit="+conexion.getRs().getString("usuario_id")+">editar</a></td>");
-                                out.println("<td><a href=../../ServletUsuario?eliminar="+conexion.getRs().getString("usuario_id")+">eliminar</a></td>");
+                                out.println("<td><a href=usuario_actualizar.jsp?edit="+conexion.getRs().getString("usuario_id")+">Editar</a></td>");
+                                out.println("<td><a href=../../ServletUsuario?eliminar="+conexion.getRs().getString("usuario_id")+">Eliminar</a></td>");
                                 out.println("</tr>");
                             }
                          %> 
                         
                     </tbody>
                 </table>
-            </div>  
+                    <form action="usuario_crear.jsp">
+                        <div class="input-field col s12">    
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Crear nuevo usuario
+                                <i class="material-icons right">send</i>
+                            </button>      
+                        </div>
+                    </form>    
+            </div>     
         </main>
         <!--PIE DE PAGINA-->
         <footer class="page-footer blue-grey darken-4">

@@ -1,11 +1,12 @@
 <%-- 
     Document   : vehiculo_crear
-    Created on : 22-07-2017, 2:46:01
+    Created on : 24-07-2017, 4:04:38
     Author     : Galmier
 --%>
 
 <%@page import="Acceso.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <%
     HttpSession sesion=request.getSession();
     if(sesion.getAttribute("conectado")==null || sesion.getAttribute("conectado").equals("false") || sesion.getAttribute("conectado").equals("true-invitado")){
@@ -42,7 +43,7 @@
                         <ul id="dropdown1" class="dropdown-content">
                             <li><a href="#!">Gerencia</a></li>
                             <li class="divider"></li>
-                            <li><a href="#!">Choferes</a></li>
+                            <li><a href="#!">Empresas</a></li>
                             <li class="divider"></li>
                             <li><a href="#!">Obras</a></li>
                         </ul>
@@ -109,7 +110,7 @@
                                     </div> 
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <i class="material-icons prefix">library_books</i>
+                                            <i class="material-icons prefix">collections</i>
                                             <input id="icon_prefix" type="text" class="validate" name="imagen">
                                             <label for="icon_prefix">Imagen</label>
                                         </div>

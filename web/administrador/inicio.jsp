@@ -33,7 +33,7 @@
                         <ul id="dropdown1" class="dropdown-content">
                             <li><a href="#!">Gerencia</a></li>
                             <li class="divider"></li>
-                            <li><a href="#!">Choferes</a></li>
+                            <li><a href="#!">Empresas</a></li>
                             <li class="divider"></li>
                             <li><a href="#!">Obras</a></li>
                         </ul>
@@ -74,7 +74,7 @@
                         <div class="card-content white-text">
                             <span class="card-title">Ficha Tecnica</span>
                             <p>En esta sección podra consultar la ficha técnica de cada vehiculo 
-                                ingresado en el sistema con su respectiba imagen nde referencias y 
+                                ingresado en el sistema con su respectiba imagen de referencias y 
                                 datos de utilidad</p>
                         </div>
                         <div class="card-action">

@@ -20,6 +20,14 @@ public class Vehiculo {
     public Vehiculo(){
     con=new Conexion();
     }
+    
+    public void update(){
+        con.runSql("update vehiculos set codigo='"+this.getCodigo()+"', patente='"+this.getPatente()+"', marca='"+this.getMarca()+"', modelo='"+this.getModelo()+"', imagen='"+this.getImagen()+"', tipo_vehiculo_id='"+this.getTipo_vehiculo_id()+"', empresa_id='"+this.getEmpresa_id()+"', estado_id='"+this.getEstado_id()+"', obra_id='"+this.getObra_id()+"' where vehiculo_id='"+this.getVehiculo_id()+"'");
+    }
+    
+    public void delete(){
+        con.runSql("delete from vehiculos where vehiculo_id='"+this.getVehiculo_id()+"'");
+    }
     public void save(){
         String sql="insert into vehiculos(codigo,patente,marca,modelo,imagen,estado,fecha_creacion,tipo_vehiculo_id,empresa_id,estado_id,obra_id) values('"+this.getCodigo()+"','"+this.getPatente()+"','"+this.getMarca()+"','"+this.getModelo()+"','"+this.getImagen()+"','activo',now(),'"+this.getTipo_vehiculo_id()+"','"+this.getEmpresa_id()+"','"+this.getEstado_id()+"','"+this.getObra_id()+"')";
         con.runSql(sql);

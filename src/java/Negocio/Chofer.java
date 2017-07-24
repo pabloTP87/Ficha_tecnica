@@ -18,8 +18,16 @@ public class Chofer {
     public Chofer(){
         con=new Conexion();
     }
+    
+    public void update(){
+        con.runSql("update choferes set nombre_chofer='"+this.getNombre_chofer()+"', ap_paterno='"+this.getAp_paterno()+"', ap_materno='"+this.getAp_materno()+"', rut='"+this.getRut()+"', empresa_id='"+this.getEmpresa_id()+"', vehiculo_id='"+this.getVehiculo_id()+"', obra_id='"+this.getObra_id()+"' where chofer_id='"+this.getChofer_id()+"'");
+    }
+    
+    public void delete(){
+        con.runSql("delete from choferes where chofer_id='"+this.getChofer_id()+"'");
+    }
     public void save(){
-        String sql="insert into choferes(nombre_chofer,ap_paterno,ap_materno,rut,estado,feha_creacion,vehiculo_id,empresa_id,obra_id) values('"+this.getNombre_chofer()+"','"+this.getAp_paterno()+"','"+this.getAp_materno()+"','"+this.getRut()+"','activo',now(),'"+this.getVehiculo_id()+"','"+this.getEmpresa_id()+"','"+this.getObra_id()+"')";
+        String sql="insert into choferes(nombre_chofer,ap_paterno,ap_materno,rut,estado,fecha_creacion,empresa_id,vehiculo_id,obra_id) values('"+this.getNombre_chofer()+"','"+this.getAp_paterno()+"','"+this.getAp_materno()+"','"+this.getRut()+"','activo',now(),'"+this.getEmpresa_id()+"','"+this.getVehiculo_id()+"','"+this.getObra_id()+"')";
         con.runSql(sql);
     }
 

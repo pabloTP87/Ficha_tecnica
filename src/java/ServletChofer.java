@@ -14,7 +14,8 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
         try (PrintWriter out = response.getWriter()) {
             Chofer chofer=new Chofer();
             HttpSession sesion=request.getSession();
-            
+            if (request.getParameter("eliminar") == null) {
+                
                 if (request.getParameter("accion").equals("registrar")) {
                     String nombre_chofer=request.getParameter("nombre_chofer");
                     String ap_paterno=request.getParameter("ap_paterno");
@@ -32,11 +33,37 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
                     chofer.setObra_id(obra_id);
                     chofer.save();
                     response.sendRedirect("administrador/chofer/chofer_editar.jsp");
+                    
+                } else if (request.getParameter("accion").equals("actualizar")) {
+                    String chofer_id=request.getParameter("chofer_id");
+                    String nombre_chofer=request.getParameter("nombre_chofer");
+                    String ap_paterno=request.getParameter("ap_paterno");
+                    String ap_materno=request.getParameter("ap_materno");
+                    String rut=request.getParameter("rut");
+                    String empresa_id=request.getParameter("empresa_id");
+                    String vehiculo_id=request.getParameter("vehiculo_id");
+                    String obra_id=request.getParameter("obra_id");
+                    chofer.setChofer_id(chofer_id);
+                    chofer.setNombre_chofer(nombre_chofer);
+                    chofer.setAp_paterno(ap_paterno);
+                    chofer.setAp_materno(ap_materno);
+                    chofer.setRut(rut);
+                    chofer.setEmpresa_id(empresa_id);
+                    chofer.setVehiculo_id(vehiculo_id);
+                    chofer.setObra_id(obra_id);
+                    chofer.update();                    
+                    response.sendRedirect("administrador/chofer/chofer_editar.jsp");
             } else if(request.getParameter("accion").equals("cerrar")){
                 sesion.invalidate();
                 response.sendRedirect("index.jsp");
             }
-        }
+        } else{
+                String id=request.getParameter("eliminar");
+                chofer.setChofer_id(id);
+                chofer.delete();
+                response.sendRedirect("administrador/chofer/chofer_editar.jsp");
+            }
+        }    
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
