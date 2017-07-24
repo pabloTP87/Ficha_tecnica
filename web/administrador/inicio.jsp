@@ -53,7 +53,7 @@
                         <li><a href="vehiculo/vehiculo_editar.jsp"><i class="material-icons">directions_car</i>Modulo Vehiculos</a></li>
                         <li><a href="chofer/chofer_editar.jsp"><i class="material-icons">directions_walk</i>Modulo Choferes</a></li>
                         <li><a href="usuario/usuario_editar.jsp"><i class="material-icons">perm_identity</i>Modulo Usuarios</a></li>                        
-                        <li><a href="<%response.encodeURL("../index.jsp"); %>"><i class="material-icons">power_settings_new</i>Log out</a></li>                                            
+                        <li><a href="../ServletUsuario?accion=cerrar"><i class="material-icons">power_settings_new</i>Log out</a></li>                                            
                     </ul>        
                 </nav>
             </div>

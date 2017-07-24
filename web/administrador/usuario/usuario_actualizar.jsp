@@ -60,7 +60,7 @@
                         <li><a href="../inicio.jsp"><i class="material-icons">home</i>Inicio</a></li>
                         <li><a href="usuario_crear.jsp"><i class="material-icons">person</i>Ingresar Usuario</a></li>
                         <li><a href="usuario_editar.jsp"><i class="material-icons">settings</i>Editar Usuario</a></li>
-                        <li><a href="#!"><i class="material-icons">power_settings_new</i>Log out</a></li>
+                        <li><a href="../../ServletUsuario?accion=cerrar"><i class="material-icons">power_settings_new</i>Log out</a></li>
                     </ul>        
                 </nav>
             </div>

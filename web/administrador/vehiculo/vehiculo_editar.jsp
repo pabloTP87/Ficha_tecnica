@@ -58,7 +58,7 @@
                         <li><a href="../inicio.jsp"><i class="material-icons">home</i>Inicio</a></li>
                         <li><a href="vehiculo_crear.jsp"><i class="material-icons">person</i>Ingresar Vehiculo</a></li>
                         <li><a href="vehiculo_editar.jsp"><i class="material-icons">settings</i>Editar Vehiculo</a></li>                        
-                        <li><a href="#!"><i class="material-icons">power_settings_new</i>Log out</a></li>
+                        <li><a href="../../ServletVehiculo?accion=cerrar"><i class="material-icons">power_settings_new</i>Log out</a></li>
                     </ul>        
                 </nav>
             </div>
