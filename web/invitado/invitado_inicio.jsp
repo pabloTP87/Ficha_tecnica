@@ -50,7 +50,6 @@
                         </li>
                         <li class="divider"></li>
                         <li><a href="invitado_inicio.jsp"><i class="material-icons">home</i>Inicio</a></li>
-                        <li><a href="#!"><i class="material-icons">directions_car</i>Ficha Tecnica</a></li>
                         <li><a href="usuario/usuario_index.jsp"><i class="material-icons">perm_identity</i>Modulo Usuarios</a></li>
                         <li><a href="../ServletUsuario?accion=cerrar"><i class="material-icons">power_settings_new</i>Log out</a></li>
                     </ul>        

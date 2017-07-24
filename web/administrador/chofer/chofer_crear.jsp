@@ -63,6 +63,7 @@
             <div class="section"></div>
             <!--FORMULARIO-->
             <div class="row container">
+                <h5>Ingrese Nuevo chofer:</h5>
                 <form class="col s12" method="post" action="../../ServletChofer?accion=registrar">
                     <div class="row">
                         <div class="col s12 l6">
@@ -144,6 +145,7 @@
                 </form>
         </main>
         <!--PIE DE PAGINA-->
+        <div class="section"></div>
         <footer class="page-footer blue-grey darken-4">
             <div class="footer-copyright">
                 <div class="container">
